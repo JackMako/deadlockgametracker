@@ -1,0 +1,16 @@
+{
+    "name": "mako/deadlockgametracker",
+    "description": "A script for fetching and sending the latest deadlock game of a set of users",
+    "autoload": {
+        "psr-4": {
+            "Mako\\Deadlockgametracker\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jack M",
+            "email": "jack@jackmatthews.dev
+        }
+    ],
+    "require": {}
+}
