@@ -47,6 +47,7 @@ $trackedPlayers = array_map(
     array_filter(array_map('trim', explode(',', $_ENV['TRACKED_PLAYERS'])))
 );
 
+// unique match ids across all tracked players
 $recent = $api->getRecentMatchIds($trackedPlayers);
 
 // hero names never change mid run so fetch once
@@ -64,15 +65,10 @@ foreach ($recent as $matchId) {
         $playerNames = $steam->getPlayerNames(array_map(fn($p) => $p->accountId, $match->players));
         $formatter = new MatchFormatter($heroNames, $playerNames);
 
-        // post once for every tracked player who was in this match
-        foreach ($trackedPlayers as $accountId) {
-            if ($match->findPlayer($accountId) === null) {
-                continue;
-            }
-            $webhook->send($formatter->format($match, $accountId));
-            $posted++;
-            usleep(500000); // stay under discords rate limit
-        }
+        // one post per match
+        $webhook->send($formatter->format($match));
+        $posted++;
+        usleep(500000); // stay under discords rate limit
 
         // only mark seen once its actually posted
         $matchRepo->markSeen($matchId);

@@ -17,7 +17,9 @@ class MatchFormatter
         $duration = gmdate('i:s', $match->durationSeconds);
 
         $lines = [];
+        $lines[] = "A match was just played. Match ID: {$match->matchId}";
         $lines[] = "```";
+
 
         foreach ([0, 1] as $team) {
             $lines[] = $team === $match->winningTeam ? "-- Team {$team} (won) --" : "-- Team {$team} --";
