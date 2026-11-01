@@ -9,8 +9,11 @@
     "authors": [
         {
             "name": "Jack M",
-            "email": "jack@jackmatthews.dev
+            "email": "jack@jackmatthews.dev"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "*",
+        "vlucas/phpdotenv": "^5.8"
+    }
 }
