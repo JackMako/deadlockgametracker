@@ -1,5 +1,5 @@
 <?php
-namespace Mako\Deadlockgametracker\repositories;
+namespace Mako\Deadlockgametracker\Repositories;
 
 use Mako\Deadlockgametracker\Database;
 
