@@ -40,7 +40,7 @@ $recent = $api->getRecentMatchIds($trackedPlayers);
 $matchesToSend = [] ;
 foreach ($recent as $match) {
     if ($matchRepo->hasSeen($match)) {
-        echo "already seen";
+        echo "{$match} already seen";
     } else {
         $matchRepo->markSeen($match);
         $matchesToSend[] = MatchResult::fromArray($api->getMatchMetadata($match));

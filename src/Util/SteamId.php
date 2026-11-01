@@ -1,7 +1,7 @@
 <?php
 namespace Mako\Deadlockgametracker\Util;
 
-class SteamID {
+class SteamId {
     private const STEAM64_OFFSET = 76561197960265728;
 
     // accepts steamid64 or account id and always returns the account id
